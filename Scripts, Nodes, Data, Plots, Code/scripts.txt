@@ -1,0 +1,161 @@
+
+The below are the scripts that we used to execute on the machine to collect,store the ping and traceroute data. 
+
+First we loggedin to the Ualbany Virtual Machine using our credentails. Then we used the command "ssh albany_ccn2@nodeipaddress". 
+After that we executed the below commands to collect and store the ping and traceroute data. 
+
+For ping, the script we used is
+nohup sh -c 'while true; do ping destinationipaddress -c 20 >>filename; sleep 1200; done' & 
+
+The format that we use to store the ping data filename is p_sourcelocation_to_destinationlocation.txt 
+
+For traceroute, the script we used is
+nohup sh -c 'while true; do traceroute destinationipaddress >>filename; sleep 1200; done' & 
+
+The format that we use to store the ping data filename is tc_sourcelocation_to_destinationlocation.txt 
+
+
+
+1. 200.17.202.195 --- Brazil
+ 
+#Georgia
+nohup sh -c 'while true; do ping 170.140.119.69 -c 20 >>p_brazil_to_georgia.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 170.140.119.69 >>tc_brazil_to_georgia.txt; sleep 1200; done' &
+ 
+#Japan2
+nohup sh -c 'while true; do ping 133.9.81.166 -c 20 >>p_brazil_to_japan2.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 133.9.81.166 >>tc_brazil_to_japan2.txt; sleep 1200; done' &
+ 
+2. 170.140.119.69 --- Georgia
+ 
+#Brazil
+nohup sh -c 'while true; do ping 200.17.202.195 -c 20 >>p_georgia_to_brazil.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 200.17.202.195 >>tc_georgia_to_brazil.txt; sleep 1200; done' &
+ 
+ 
+#Japan1
+nohup sh -c 'while true; do ping 165.242.90.128 -c 20 >>p_georgia_to_japan1.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 165.242.90.128 >>tc_georgia_to_japan1.txt; sleep 1200; done' &
+ 
+3. 146.57.249.98 --- Minnesota
+ 
+#Michigan 
+nohup sh -c 'while true; do ping 198.108.101.61 -c 20 >>p_minnesota_to_michigan.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 198.108.101.61 >>tc_minnesota_to_michigan.txt; sleep 1200; done' &
+ 
+4. 198.108.101.61 --- Michigan
+ 
+#Minnesota
+nohup sh -c 'while true; do ping 146.57.249.98 -c 20 >>p_michigan_to_minnesota.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 146.57.249.98 >>tc_michigan_to_minnesota.txt; sleep 1200; done' &
+ 
+5. 165.242.90.128 --- Japan1
+ 
+#Georgia
+nohup sh -c 'while true; do ping 170.140.119.69 -c 20 >>p_japan1_to_georgia.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 170.140.119.69 >>tc_japan1_to_georgia.txt; sleep 1200; done' &
+ 
+6. 128.10.18.53 --- Purdue(USA)
+ 
+#Poland
+nohup sh -c 'while true; do ping 194.29.178.14 -c 20 >>p_purdue_to_poland.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 194.29.178.14 >>tc_purdue_to_poland.txt; sleep 1200; done' &
+ 
+7. 194.29.178.14 --- Poland
+ 
+#Purdue
+nohup sh -c 'while true; do ping 128.10.18.53 -c 20 >>p_poland_to_purdue.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 128.10.18.53 >>tc_poland_to_purdue.txt; sleep 1200; done' &
+ 
+8. 133.9.81.166 --- Japan2
+ 
+#Brazil
+nohup sh -c 'while true; do ping 200.17.202.195 -c 20 >>p_japan2_to_brazil.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 200.17.202.195 >>tc_japan2_to_brazil.txt; sleep 1200; done' &
+ 
+9. 142.103.2.2 --- Canada 
+ 
+#Citadel(USA)
+nohup sh -c 'while true; do ping 155.225.2.72 -c 20 >> p_canada_to_citadel.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 155.225.2.72 >> tc_canada_to_citadel.txt; sleep 1200; done' &
+ 
+10. 155.225.2.72 --- Citadel(USA)
+ 
+#Canada
+nohup sh -c 'while true; do ping 142.103.2.2  -c 20 >> p_citadel_to_canada.txt; sleep 1200; done' &
+nohup sh -c 'while true; do traceroute 142.103.2.2  >>tc_citadel_to_canada.txt; sleep 1200; done' &
+
+
+
+
+After collecting and storing the data in the files now we need to retrive the data for analyzation and visualization purposes. 
+We need to login into the UAlbany Vitual Machine Server using our credentails and execute the scp command.
+
+The format of the script that we used to retrive the files are:
+scp albany_ccn2@ipaddress:/* /home1/s/a/username
+
+Here "*" in the above command indicates that we want to retrive all the files, if we want to retrive only a specific file them we can give the file name 
+inplace of "*". The scripts that we used are:
+
+
+1. 200.17.202.195 --- Brazil - 
+
+scp albany_ccn2@200.17.202.195:/* /home1/s/a/ag482915
+
+
+
+2. 170.140.119.69 --- Georgia - 
+
+scp albany_ccn2@170.140.119.69:/* /home1/s/a/ag482915
+
+
+
+3. 146.57.249.98 --- Minnesota - 
+
+scp albany_ccn2@146.57.249.98:/* /home1/s/a/ag482915
+
+
+4. 198.108.101.61 --- Michigan - 
+
+scp albany_ccn2@198.108.101.61:/* /home1/s/a/ag482915
+
+
+5. 133.9.81.166 --- Japan2 - 
+
+scp albany_ccn2@133.9.81.166:/* /home1/s/a/ag482915
+
+
+
+6. 128.10.18.53 --- Purdue(USA) - 
+
+scp albany_ccn2@128.10.18.53:/* /home1/s/a/ag482915
+
+
+
+7. 194.29.178.14 --- Poland - 
+
+scp albany_ccn2@194.29.178.14:/* /home1/s/a/ag482915
+
+
+
+8. 142.103.2.2 --- Canada - 
+
+scp albany_ccn2@142.103.2.2:/* /home1/s/a/ag482915
+
+
+
+9. 155.225.2.72 --- Citadel(USA) - 
+
+scp albany_ccn2@155.225.2.72:/* /home1/s/a/ag482915
+
+
+10. 165.242.90.128 --- Japan1
+
+
+scp albany_ccn2@165.242.90.128:/* /home1/s/a/ag482915
+
+
+
+
+
+
