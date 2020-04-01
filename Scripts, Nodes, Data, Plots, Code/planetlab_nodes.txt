@@ -1,4 +1,4 @@
-The planet lab nodes that we used to analyze the internet stability are:
+The planet lab nodes that I used to analyze the internet stability are:
 
 1. Brazil
 2. Georgia
@@ -11,9 +11,9 @@ The planet lab nodes that we used to analyze the internet stability are:
 9. Purdue 
 10.Poland
 
-These above are the nodes that we choose and used to analyze the internet path stability.While selecting the nodes we made sure we have 2-3 nodes from continents other than North America.  
+These above are the nodes that I choose and used to analyze the internet path stability.While selecting the nodes I made sure I have 2-3 nodes from continents other than North America.  
 
-Of the above 10 nodes that we used made the above into 6 pairs. We made sure we have one transatlantic and one transpacific link. 
+Of the above 10 nodes that I used made the above into 6 pairs. I made sure I have one transatlantic and one transpacific link. 
 
 The pairs are 
 

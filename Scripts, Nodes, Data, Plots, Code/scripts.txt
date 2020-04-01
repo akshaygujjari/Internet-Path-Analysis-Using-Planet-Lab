@@ -1,18 +1,18 @@
 
-The below are the scripts that we used to execute on the machine to collect,store the ping and traceroute data. 
+The below are the scripts that I used to execute on the machine to collect,store the ping and traceroute data. 
 
-First we loggedin to the Ualbany Virtual Machine using our credentails. Then we used the command "ssh albany_ccn2@nodeipaddress". 
-After that we executed the below commands to collect and store the ping and traceroute data. 
+First I loggedin to the Ualbany Virtual Machine using our credentails. Then I used the command "ssh albany_ccn2@nodeipaddress". 
+After that I executed the below commands to collect and store the ping and traceroute data. 
 
-For ping, the script we used is
+For ping, the script I used is
 nohup sh -c 'while true; do ping destinationipaddress -c 20 >>filename; sleep 1200; done' & 
 
-The format that we use to store the ping data filename is p_sourcelocation_to_destinationlocation.txt 
+The format that I use to store the ping data filename is p_sourcelocation_to_destinationlocation.txt 
 
-For traceroute, the script we used is
+For traceroute, the script I used is
 nohup sh -c 'while true; do traceroute destinationipaddress >>filename; sleep 1200; done' & 
 
-The format that we use to store the ping data filename is tc_sourcelocation_to_destinationlocation.txt 
+The format that I use to store the ping data filename is tc_sourcelocation_to_destinationlocation.txt 
 
 
 
@@ -88,14 +88,14 @@ nohup sh -c 'while true; do traceroute 142.103.2.2  >>tc_citadel_to_canada.txt; 
 
 
 
-After collecting and storing the data in the files now we need to retrive the data for analyzation and visualization purposes. 
-We need to login into the UAlbany Vitual Machine Server using our credentails and execute the scp command.
+After collecting and storing the data in the files now I need to retrive the data for analyzation and visualization purposes. 
+I need to login into the UAlbany Vitual Machine Server using our credentails and execute the scp command.
 
-The format of the script that we used to retrive the files are:
+The format of the script that I used to retrive the files are:
 scp albany_ccn2@ipaddress:/* /home1/s/a/username
 
-Here "*" in the above command indicates that we want to retrive all the files, if we want to retrive only a specific file them we can give the file name 
-inplace of "*". The scripts that we used are:
+Here "*" in the above command indicates that I want to retrive all the files, if I want to retrive only a specific file them I can give the file name 
+inplace of "*". The scripts that I used are:
 
 
 1. 200.17.202.195 --- Brazil - 
